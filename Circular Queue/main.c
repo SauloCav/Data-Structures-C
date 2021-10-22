@@ -9,13 +9,10 @@ int main(){
 		
 	printf("Insira n: ");
 	scanf("%d", &n);
-	
-	//cria a Lista
+
 	Fila* li = create(n);
 	
 	int i, esc, ret, adi, che, vaz, x;
-	
-	// FIZ EM SWITCH PORQUE ACHEI QUE FICARIA MAIS INTERESSANTE
 	
 	do{
 		
@@ -163,4 +160,3 @@ int main(){
 	}while(esc!=0);
 
 }
-

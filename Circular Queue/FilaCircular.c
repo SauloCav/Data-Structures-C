@@ -57,7 +57,6 @@ int add(Fila* fi, int e){
 		
 	}
 	
-	
 }
 
 int remove(Fila* fi){
@@ -85,6 +84,7 @@ int remove(Fila* fi){
 		return 0;
 		
 	}
+
 }
 
 int isFull(Fila* fi){
@@ -181,4 +181,3 @@ void printFila(Fila* fi){
 	}
 		
 }
-
