@@ -18,11 +18,9 @@ int main(){
 	printf("\n");
 	
 	for(i=0; i<n; i++){
-		
 		printf("Insira o elemento [%d]: ", i);
 		scanf("%d", &x);
 		add(pi, x);
-		
 	}
 
 	tam = size(pi);
@@ -44,59 +42,39 @@ int main(){
 	}
 	
 	if(pos>0){
-		
 		printf("Elemento %d encontrado em: ", y);
 		
 		for(i=0; i<pos; i++){
-		
 			printf("[%d] ", v[i], y);
-		
 		}
-		
 	}
-	
-	
-	//checa se a pilha est� cheia
+
 	che = isFull(pi);
 	
-	if(che==0){
-			
-		printf("\n\nPilha cheia? Falso!\n", vaz);
-			
+	if(che==0){	
+		printf("\n\nPilha cheia? Falso!\n", vaz);	
 	}
 	else{
-			
-		printf("\n\nPilha cheia? Verdadeiro!\n");
-			
+		printf("\n\nPilha cheia? Verdadeiro!\n");	
 	}
 	
-	
-	//checa se a pilha est� vazia	
 	vaz = isEmpty(pi);
 	
-	if(vaz==0){
-			
-		printf("\n\nPilha vazia? Falso!\n", vaz);
-			
+	if(vaz==0){	
+		printf("\n\nPilha vazia? Falso!\n", vaz);	
 	}
 	else{
-			
 		printf("\n\nPilha vazia? Verdadeiro!\n");
-			
 	}
 	
-	
-	//remove elemento do topo da pilha e checa o novo topo
 	ret = pop(pi);
 	
 	too = top(pi);
 	printf("\n\nNovo topo: %d\n", too);
 	
-	//esvazia a pilha e depois faz uma checagem
 	limp = clear(pi);
 	
 	if(limp==1){
-		
 		printf("\n\nLimpando pilha.");
 		Sleep(2000);
 		printf(".");
@@ -106,16 +84,11 @@ int main(){
 		printf(".");
 	
 		vaz = isEmpty(pi);
-	
 		if(vaz==0){
-			
 			printf("\n\nPilha vazia? Falso!\n", vaz);
-			
 		}
 		else{
-			
 			printf("\n\nPilha vazia? Verdadeiro!\n");
-			
 		}
 	
 	}

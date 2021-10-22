@@ -8,27 +8,20 @@ struct pilha {
 	int* dados;
 } ;
 
-//////////////////////// CREATE ///////////////////////////////////////////////////////////////////////////////////////////////////
-
 Pilha* create(int n){
 	
-	Pilha* pi = (Pilha*) malloc(sizeof(Pilha)); // 1 | 1
+	Pilha* pi = (Pilha*) malloc(sizeof(Pilha));
 	
-	if(pi == NULL){ // 1
-		return NULL; // 1
+	if(pi == NULL){
+		return NULL;
 	}else{
-		pi->dados = (int*) malloc(n * sizeof(int)); // 1 | n
-		pi->limite = n; // 1
-		pi->contador = 0; // 1
-		return pi; // 1
+		pi->dados = (int*) malloc(n * sizeof(int));
+		pi->limite = n; 
+		pi->contador = 0;
+		return pi;
 	}
 			
 }
-
-// Complexidade temporal: O(7) = O(c) (Constante)
-// Complexidade espacial: O(n+1) = O(n) (Linear)
-
-//////////////////////// ADD //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int add(Pilha* pi, int e){
 	
