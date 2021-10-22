@@ -25,186 +25,140 @@ Pilha* create(int n){
 
 int add(Pilha* pi, int e){
 	
-	if(pi!=NULL && pi->contador < pi->limite ) { // 1
-		int posicaoDaInsercao = pi->contador; // 1 | 1
-		pi->dados[posicaoDaInsercao] = e; // 1
-		pi->contador++; // 1
-		return 1; // 1
+	if(pi!=NULL && pi->contador < pi->limite ) {
+		int posicaoDaInsercao = pi->contador;
+		pi->dados[posicaoDaInsercao] = e;
+		pi->contador++;
+		return 1;
 	}
 	else{
-		return 0; // 1
+		return 0;
 	}	
 		
 }
-
-// Complexidade temporal: O(6) = O(c) (Constante)
-// Complexidade espacial: O(1) = O(c) (Constante)
-
-
-//////////////////////// POP //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int pop(Pilha* pi){
 	
-	if(pi!=NULL && !isEmpty(pi)){ // 1
-		pi->contador--; // 1
-		return 1; // 1
+	if(pi!=NULL && !isEmpty(pi)){
+		pi->contador--;
+		return 1;
 	}
 	else{	
-		return 0; // 1
+		return 0;
 	}	
 	
 }
-
-// Complexidade temporal: O(4) = O(c) (Constante)
-// Complexidade espacial: O(0)
-
-//////////////////////// SIZE /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int size(Pilha* pi){
 	
-	if(pi!=NULL && !isEmpty(pi)){ // 1
-		return pi->contador; // 1
+	if(pi!=NULL && !isEmpty(pi)){
+		return pi->contador;
 	}
 	else{	
-		return 0; // 1
+		return 0;
 	}
 	
 }
-
-// Complexidade temporal: O(3) = O(c) (Constante)
-// Complexidade espacial: O(0)
-
-//////////////////////// TOP //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int top(Pilha* pi){
 	
-	if(pi!=NULL && !isEmpty(pi)){ // 1
-		int posicaoDoUltimoInserido = pi->contador-1; // 1 | 1
-		return pi->dados[posicaoDoUltimoInserido]; // 1
+	if(pi!=NULL && !isEmpty(pi)){
+		int posicaoDoUltimoInserido = pi->contador-1;
+		return pi->dados[posicaoDoUltimoInserido];
 	}
 	else{
-		return 0; // 1
+		return 0;
 	}	
 	
 }
-
-// Complexidade temporal: O(4) = O(c) (Constante)
-// Complexidade espacial: O(1) = O(c) (Constante)
-
-//////////////////////// BOTTOM ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 int bottom(Pilha* pi){
 
-	if(pi!=NULL && !isEmpty(pi)){ // 1
-		return pi->dados[0]; // 1
+	if(pi!=NULL && !isEmpty(pi)){
+		return pi->dados[0];
 	}
 	else{
-		return 0; // 1
+		return 0;
 	}	
 
 }
 
-// Complexidade temporal: O(3) = O(c) (Constante)
-// Complexidade espacial: O(0)
-
-//////////////////////// FIND /////////////////////////////////////////////////////////////////////////////////////////////////////
-
 int find(Pilha* pi, int y, int *vetor, int j){
 	
-	int i; // 1 | 1
+	int i;
 	
-	if(pi!=NULL && !isEmpty(pi)){ // 1
+	if(pi!=NULL && !isEmpty(pi)){
 		
-		int cont=0; // 1 | 1
+		int cont=0;
 		
-		for(i=0; i<=pi->contador; i++){ // 1+2n
+		for(i=0; i<=pi->contador; i++){
 			
-			if(pi->dados[i] == y){ // n
+			if(pi->dados[i] == y){
 				
-				vetor[j] = i; // n
-				j++; // n
-				cont++; // n
+				vetor[j] = i;
+				j++;
+				cont++;
 				
 			}
 			
 		}
 		
-		if(j==0){ //1
-			return -1; //1
+		if(j==0){
+			return -1;
 		}
 		else{
-			return cont; //1
+			return cont;
 		}
 		
 	}
 	else{	
-		return 0; //1	
+		return 0;	
 	}
 	
 }
-
-// Complexidade temporal: O(8+6n) = O(n) (Linear)
-// Complexidade espacial: O(2) = O(c) (Constante)
-
-//////////////////////// ISFULL ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 int isFull(Pilha* pi){
 	
-	if(pi==NULL){ // 1
-		return 0; // 1
+	if(pi==NULL){
+		return 0;
 	}
 	else{
 
-		if((pi->contador)==(pi->limite)){ // 1
-			return 1; // 1
+		if((pi->contador)==(pi->limite)){
+			return 1;
 		}
 		else{
-			return 0; // 1
+			return 0;
 		}
 		
 	}
 	
 }
-
-// Complexidade temporal: O(5) = O(c) (Constante)
-// Complexidade espacial: O(0)
-
-//////////////////////// ISEMPTY //////////////////////////////////////////////////////////////////////////////////////////////////
 
 int isEmpty(Pilha* pi){
 	
-	if(pi == NULL){	// 1
-		return 1; // 1
+	if(pi == NULL){
+		return 1;
 	}
 	
-	if(pi->contador <= 0){ // 1
-		return 1; // 1
+	if(pi->contador <= 0){
+		return 1;
 	}
 		
 	else{	
-		return 0; // 1	
+		return 0; 
 	}
 	
 }
-
-// Complexidade temporal: O(5) = O(c) (Constante)
-// Complexidade espacial: O(0)
-
-//////////////////////// CLEAR ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int clear(Pilha* pi){
 	
-	if(pi==NULL){ // 1
-		return 0; // 1
+	if(pi==NULL){ 
+		return 0; 
 	}
 	else{
-		free(pi); //1
-		return 1; //1
+		free(pi);
+		return 1;
 	}
 	
 }
-
-// Complexidade temporal: O(4) = O(c) (Constante)
-// Complexidade espacial: O(0)
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

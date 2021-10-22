@@ -19,4 +19,3 @@ int isFull(Pilha* pi);
 int isEmpty(Pilha* pi);
 
 int clear(Pilha* pi);
-
