@@ -9,8 +9,7 @@ int main(){
 		
 	printf("Insira n: ");
 	scanf("%d", &n);
-	
-	//cria a Lista
+
 	Lista* li = create(n);
 	
 	int i, x, y, z, j=0, ind, adi, adp, rem, vaz, ret, tam, che, pos, esc, cle;
