@@ -16,15 +16,15 @@ int main() {
 	printf("\nEm ordem ");
 	
 	em_ordem(arv);
-	
 	printf("\n");
+
 	isEmpty(arv);
-	
 	printf("\n");
+
 	size(arv);
+	printf("\n");
+	printf("\n");
 	
-	printf("\n");
-	printf("\n");
 	find(arv, 13);
 	find(arv, 17);
 	find(arv, 1);
