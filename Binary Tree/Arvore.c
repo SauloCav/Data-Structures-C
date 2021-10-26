@@ -170,4 +170,3 @@ void clear(ArvoreeNo *arvore){
 	free(arvore);
 	
 }
-
