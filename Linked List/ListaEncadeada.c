@@ -2,180 +2,143 @@
 #include <stdlib.h>
 #include "ListaEncadeada.h"
 
-//////////////////////// CREATE ///////////////////////////////////////////////////////////////////////////////////////////////////
-
 ListaEncadeada *create() {
 	
-	 ListaEncadeada *lista = (ListaEncadeada *)malloc(sizeof (ListaEncadeada)); // 1 | 1
+	 ListaEncadeada *lista = (ListaEncadeada *)malloc(sizeof (ListaEncadeada));
 
-	 if(lista != NULL) { // 1
-		 lista->inicio = NULL; // 1
-		 lista->fim = NULL; // 1
-		 lista->tamanho = 0; // 1
+	 if(lista != NULL) {
+		 lista->inicio = NULL;
+		 lista->fim = NULL;
+		 lista->tamanho = 0;
 	 }
 
-	 return lista; // 1
+	 return lista;
 }
-
-// Complexidade temporal: O(6) = O(c) (Constante)
-// Complexidade espacial: O(1) = O(c) (Constante)
-
-//////////////////////// ADD //////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int add(ListaEncadeada *lista, int valor) {
 	 
-	No* pnovo = (No*) malloc(sizeof(No)); // 1 | 1
+	No* pnovo = (No*) malloc(sizeof(No));
 
-	if(pnovo != NULL) { // 1
-			 pnovo->valor = valor; // 1
-			 pnovo->proximo = NULL; // 1
+	if(pnovo != NULL) {
+			 pnovo->valor = valor;
+			 pnovo->proximo = NULL;
 
-			 if(lista->inicio == NULL) { // 1
-				lista->inicio = pnovo; // 1
+			 if(lista->inicio == NULL) {
+				lista->inicio = pnovo;
 			 } 
 			 else {
-				lista->fim->proximo = pnovo; // 1
+				lista->fim->proximo = pnovo;
 			 }
 
-			 lista->fim = pnovo; // 1
-			 lista->tamanho++; // 1
-			 return 1; // 1
+			 lista->fim = pnovo;
+			 lista->tamanho++;
+			 return 1;
 	 }
 	 
-	 return 0; // 1
+	 return 0;
 }
-
-// Complexidade temporal: O(11) = O(c) (Constante)
-// Complexidade espacial: O(1) = O(c) (Constante)
-
-//////////////////////// REMOVE ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 int remove(ListaEncadeada *lista, int chave){
 	
-	 if (!isEmpty(lista)) { // 1 
+	 if (!isEmpty(lista)) {
 		 
-		 No *alvo = lista->inicio; // 1 | 1
-		 No *anterior; // 1 | 1
+		 No *alvo = lista->inicio;
+		 No *anterior;
 		 
-		 while(alvo != NULL && alvo->valor != chave) { // n
-			anterior = alvo; // n
-			alvo = alvo->proximo; // n
+		 while(alvo != NULL && alvo->valor != chave) {
+			anterior = alvo;
+			alvo = alvo->proximo;
 		 }
 
-		 if(alvo != NULL) { // 1
-			 if(alvo != lista->inicio) { // 1
-				anterior->proximo = alvo->proximo; // 1
+		 if(alvo != NULL) {
+			 if(alvo != lista->inicio) {
+				anterior->proximo = alvo->proximo;
 			 } 
 			 else {
-				lista->inicio = alvo->proximo; // 1
+				lista->inicio = alvo->proximo;
 			 }
 
 			 if(alvo == lista->fim) {
-				lista->fim = anterior; // 1
+				lista->fim = anterior;
 			 }
 
-			 lista->tamanho--; // 1
-			 freeNo(alvo); // 1
-			 return 1; // 1
+			 lista->tamanho--;
+			 freeNo(alvo);
+			 return 1;
 			 
 		 }
 	 }
-	 return 0; // 1
+	 return 0;
 }
-
-// Complexidade temporal: O(12+3n) = O(n) (LINEAR)
-// Complexidade espacial: O(2) = O(c) (Constante)
-
-//////////////////////// SIZE /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int size(ListaEncadeada* lista){
 	
-	if(lista!=NULL && !isEmpty(lista)){ // 2
-		return lista->tamanho; // 1
+	if(lista!=NULL && !isEmpty(lista)){
+		return lista->tamanho;
 	}
 	else{	
-		return 0; // 1
+		return 0;
 	}
 	
 }
 
-// Complexidade temporal: O(4) = O(c) (Constante)
-// Complexidade espacial: O(0) = O(c) (Constante)
-
-//////////////////////// FIND /////////////////////////////////////////////////////////////////////////////////////////////////////
-
 int find(ListaEncadeada* lista, int c){
 	
-	int i, cc=-1, rec; // 3 | 3
+	int i, cc=-1, rec;
 	
-	No *alvo = lista->inicio; // 1 | 1
+	No *alvo = lista->inicio;
 	
-	if(lista!=NULL && !isEmpty(lista)){ // 1
+	if(lista!=NULL && !isEmpty(lista)){
 		
-		for(i=0; i<lista->tamanho; i++){ // n
+		for(i=0; i<lista->tamanho; i++){
 
-			if(i==0){ // n
-				alvo = lista->inicio; // n
+			if(i==0){
+				alvo = lista->inicio;
 			}
 			else{ 
-				alvo = alvo->proximo; // n
+				alvo = alvo->proximo;
 			}
 
-			rec = igualdade(alvo, c); // n
+			rec = igualdade(alvo, c);
 			
-			if(rec==1){ // n
-				cc = i; // 1
-				break; // 1
+			if(rec==1){
+				cc = i;
+				break;
 			}
 		}
 		
-		return cc; // 1
+		return cc;
 		
 	}
 	else{
 		
-		return -1; // 1
+		return -1;
 			
 	}
 	
 }
 
-// Complexidade temporal: O(9+6n) = O(n) (Linear)
-// Complexidade espacial: O(4) = O(c) (Constante)
-
-//////////////////////// ISEMPTY //////////////////////////////////////////////////////////////////////////////////////////////////
-
 int isEmpty(ListaEncadeada* lista){
 	
-	if(lista == NULL){ // 1
-		return 0; // 1	
+	if(lista == NULL){
+		return 0; 
 	}
 	
-	if(lista->tamanho <= 0){ // 1	
-		return 1; // 1
+	if(lista->tamanho <= 0){ 
+		return 1;
 	}
 	else{	
-		return 0; // 1
+		return 0;
 	}
 	
 }
-
-// Complexidade temporal: O(5) = O(c) (Constante)
-// Complexidade espacial: O(0) = O(c) (Constante)
-
-//////////////////////// CLEAR ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void clear(ListaEncadeada* lista){
 	
-	lista->inicio=NULL; // 1
-	lista->tamanho=0; // 1
+	lista->inicio=NULL; 
+	lista->tamanho=0; 
 	
 }
-
-// Complexidade temporal: O(2) = O(c) (Constante)
-// Complexidade espacial: O(0) = O(c) (Constante)
-
-//////////////////////// PRINTLISTAENCADEADA //////////////////////////////////////////////////////////////////////////////////////
 
 void printListaEncadeada(ListaEncadeada* lista){
 		 
@@ -183,22 +146,16 @@ void printListaEncadeada(ListaEncadeada* lista){
 		 
 	printf("Lista [tamanho: %i, limite: quantidade de memoria alocavel] \n\n", lista->tamanho);
 		 
-	if(isEmpty(lista)){ // 1
+	if(isEmpty(lista)){
 		printf("Lista esta' vazia.\n");
 	}	
 	else{
-		No *alvo = lista->inicio; // 1 | 1
+		No *alvo = lista->inicio; 
 		 
-		while(alvo != NULL){ // n
-			printNo(alvo); // 1
-			alvo = alvo->proximo; // 1
+		while(alvo != NULL){
+			printNo(alvo);
+			alvo = alvo->proximo;
 		}	
 	}
 		
 }
-
-// Complexidade temporal: O(4+n) = O(n) (Linear)
-// Complexidade espacial: O(1) = O(c) (Constante)
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
