@@ -8,18 +8,18 @@ typedef struct {
 	 int tamanho;
 } ListaEncadeada;
 
-ListaEncadeada* create(); //
+ListaEncadeada* create();
 
-int add(ListaEncadeada* lista, int valor); //
+int add(ListaEncadeada* lista, int valor);
 
-int remove(ListaEncadeada *lista, int chave); //
+int remove(ListaEncadeada *lista, int chave);
 
-int find(ListaEncadeada* lista, int c); //
+int find(ListaEncadeada* lista, int c);
 
-int isEmpty(ListaEncadeada* lista); //
+int isEmpty(ListaEncadeada* lista);
 
-int size(ListaEncadeada* lista); //
+int size(ListaEncadeada* lista);
 
-void clear(ListaEncadeada* lista); //
+void clear(ListaEncadeada* lista);
 
-void printListaEncadeada(ListaEncadeada* listaEncadeada); //
+void printListaEncadeada(ListaEncadeada* listaEncadeada);
