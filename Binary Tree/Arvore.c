@@ -12,7 +12,6 @@
 		 return arv;
 	}
 	
-	//criar raiz (root)
 	No *criarRaiz(ArvoreBinaria *arvore, int valor) {
 		 arvore->raiz = (No *) malloc(sizeof (No));
 		 if (arvore->raiz != NULL) {
