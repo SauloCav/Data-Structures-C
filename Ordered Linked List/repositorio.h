@@ -6,7 +6,6 @@ typedef struct CompraRealizada Comp;
 
 Comp* criaCompra(int cod, float val);
 
-
 Repo* criarRepositorio(int n);
 
 int adicionar(Repo* re, int cod, float val);
@@ -26,4 +25,3 @@ bool estaVazio(Repo* re);
 void esvaziar(Repo* re);
 
 void printRespositorio(Repo* re);
-
