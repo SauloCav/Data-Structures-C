@@ -12,6 +12,10 @@ A queue is an abstract data type that holds an ordered, linear sequence of items
 A circular queue is the extended version of a regular queue where the last element is connected to the first element. Thus forming a circle-like structure. The circular queue solves the major limitation of the normal queue. In a normal queue, after a bit of insertion and deletion, there will be non-usable empty space.</br>
 Circular Queue works by the process of circular increment i.e. when we try to increment the pointer and we reach the end of the queue, we start from the beginning of the queue.
 
+<strong>Static List:</strong></br>
+A list is an abstract data type that describes a linear collection of data items in some order, in that each element occupies a specific position in the list. The order could be alphabetic or numeric or it could just be the order in which the list elements have been added. Unlike a set, the elements of a list do not need to be unique.</br>
+Lists are used in a wide variety of situations. Many of us use to-do lists to keep ourselves organised. You may use a shopping list to make sure you don’t forget to buy something when you visit the supermarket. If you use a streamed music service, you probably have several playlists.
+
 <strong>Linked List:</strong></br>
 A linked list is a dynamic data structure, which means that the size of the list can change at run time. You can imagine a linked list as a chain where each link is connected to the next one to form a sequence with a start and an end.</br>
 Each element in a linked list is called a node. Each node stores:</br>
