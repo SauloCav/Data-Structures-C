@@ -22,3 +22,8 @@ Each element in a linked list is called a node. Each node stores:</br>
 -- The data relating to the element</br>
 -- A pointer to the next node</br>
 There is also a separate pointer that indicates the first element in the list (the head of the list). This has a null value when the list is empty. The next node pointer of the last element in the list always points to a null value to mark the end of the list.
+
+<strong>Ordered Linked List:</strong></br>
+Follows the same principles as linked lists but has its elements ordered. This ordering can be done in different ways.
+
+
