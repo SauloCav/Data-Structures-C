@@ -11,3 +11,10 @@ A queue is an abstract data type that holds an ordered, linear sequence of items
 <strong>Circular Queue:</strong></br>
 A circular queue is the extended version of a regular queue where the last element is connected to the first element. Thus forming a circle-like structure. The circular queue solves the major limitation of the normal queue. In a normal queue, after a bit of insertion and deletion, there will be non-usable empty space.</br>
 Circular Queue works by the process of circular increment i.e. when we try to increment the pointer and we reach the end of the queue, we start from the beginning of the queue.
+
+<strong>Linked List:</strong></br>
+A linked list is a dynamic data structure, which means that the size of the list can change at run time. You can imagine a linked list as a chain where each link is connected to the next one to form a sequence with a start and an end.</br>
+Each element in a linked list is called a node. Each node stores:</br>
+-- The data relating to the element</br>
+-- A pointer to the next node</br>
+There is also a separate pointer that indicates the first element in the list (the head of the list). This has a null value when the list is empty. The next node pointer of the last element in the list always points to a null value to mark the end of the list.
