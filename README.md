@@ -27,3 +27,7 @@ There is also a separate pointer that indicates the first element in the list (t
 Follows the same principles as linked lists but has its elements ordered. This ordering can be done in different ways.
 
 
+
+
+<strong>Binary Search Tree:</strong></br>
+A binary search tree is a rooted tree where the nodes of the tree are ordered. If the order is ascending (low to high), the nodes of the left subtree have values that are lower than the root, and the nodes of the right subtree have values that are higher than the root. This property is true for any node of the tree; the nodes of its left subtree will have values that are lower, and the nodes of its right subtree will have values that are higher.
