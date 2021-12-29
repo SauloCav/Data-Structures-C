@@ -19,8 +19,8 @@ Lists are used in a wide variety of situations. Many of us use to-do lists to ke
 <strong>Linked List:</strong></br>
 A linked list is a dynamic data structure, which means that the size of the list can change at run time. You can imagine a linked list as a chain where each link is connected to the next one to form a sequence with a start and an end.</br>
 Each element in a linked list is called a node. Each node stores:</br>
--- The data relating to the element</br>
--- A pointer to the next node</br>
+•  The data relating to the element</br>
+•  A pointer to the next node</br>
 There is also a separate pointer that indicates the first element in the list (the head of the list). This has a null value when the list is empty. The next node pointer of the last element in the list always points to a null value to mark the end of the list.
 
 <strong>Ordered Linked List:</strong></br>
