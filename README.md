@@ -1,2 +1,5 @@
 # Data-Structures-C
-Some Data Structures developed in C and C++
+
+<strong>Some Data Structures developed in C</strong>
+
+
