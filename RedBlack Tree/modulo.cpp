@@ -2,21 +2,18 @@
 
 void menu(){
 	int op, valor;
-	
-	//--------- iniciando a estrutura --------------------//
+
     Tno *arvore = NULL;
     
     do{    
-    //--------------- Exibir menu ---------------------//
         system("cls");
         puts("\n\t\t\t\tARVORE BINARIA BALANCEADA - VERMELHO E PRETO\n");
         puts("\t1  - INSERIR ELEMENTO\n \t2  - IMPRIMIR ARVORE\n \t3  - REMOVER\n\t0  - SAIR");
         printf("\nINFORME SUA OPCAO:\n");
-        scanf("%d", &op);//Escolha da Opção
+        scanf("%d", &op);
         
         switch(op)
         {
-        //Opção de exibir lista
     		case 1:{
     			printf("Informe um elemento: ");
     			scanf("%d", &valor);
@@ -29,7 +26,7 @@ void menu(){
     			imprime(arvore);
 			}
     			
-    		case 3: //TO DO
+    		case 3:
     			puts("Funcionalidade ainda sem implementacao.");break;
 	    	default:
 	    			puts("OPCAO INCORRETA,TENTAR NOVAMENTE.");break;
@@ -40,7 +37,7 @@ void menu(){
 }
 
 
-Tno* rotacao_simples_esquerda(Tno* a){//mesmo código da AVL
+Tno* rotacao_simples_esquerda(Tno* a){
    Tno *aux;
    aux = a->dir;
    a->dir = aux->esq;
@@ -48,7 +45,7 @@ Tno* rotacao_simples_esquerda(Tno* a){//mesmo código da AVL
    a = aux;   
    return a;
 }
-Tno * rotacao_simples_direita(Tno *a){//mesmo código da AVL
+Tno * rotacao_simples_direita(Tno *a){
   Tno *aux;
 	aux = a->esq;
 	a->esq = aux->dir;
@@ -57,10 +54,10 @@ Tno * rotacao_simples_direita(Tno *a){//mesmo código da AVL
   return a;
 }
 
-Tno* criar(int elemento){//mesmo código da AVL
+Tno* criar(int elemento){
 	Tno * dado = (Tno *)malloc(sizeof(Tno));
     dado->elemento = elemento;
-    dado->cor = vermelho;//só um ajuste para inclusão da cor
+    dado->cor = vermelho;
     dado->esq = NULL;
     dado->dir = NULL;
     return dado;
@@ -70,44 +67,44 @@ Tno* inserir(Tno* a, int valor){
 	a = incluir_no(a, dado);
 	
 	if(a != NULL)
-		a->cor = preto; //garantimos sempre a propriedade da raiz preta
+		a->cor = preto;
 	
 	return a;
 }
 Tno* incluir_no(Tno* a, Tno* dado){
   if (a == NULL){
-    return dado; //incluímos o dado
+    return dado;
   }
   else 
-  	if(dado->elemento == a->elemento); //não fazemos nada
+  	if(dado->elemento == a->elemento);
   		
   	else{
 	  	if(a->elemento > dado->elemento)
 	  		a->esq = incluir_no(a->esq, dado);
 	  	else 
 	  		a->dir = incluir_no(a->dir, dado);
-	  	//analisando os casos de uma árvore vermelho e preto
+
 	  	if((cor(a->esq)==vermelho) && (cor(a->dir)==vermelho))
 	  		trocaCor(a);
-		if((cor(a->esq)==vermelho) && (cor(a->esq->esq)==vermelho)){//neto esquerdo vermelho
+		if((cor(a->esq)==vermelho) && (cor(a->esq->esq)==vermelho)){
 	  		  a->cor = vermelho;
 	  		  a->esq->cor = preto;
 			  a = rotacao_simples_direita(a);	
 	  	}
 		
-		if((cor(a->esq)==vermelho) && (cor(a->esq->dir)==vermelho)){//neto direito vermelho
+		if((cor(a->esq)==vermelho) && (cor(a->esq->dir)==vermelho)){
 	  		Tno *aux = rotacao_simples_esquerda(a->esq);
 	  		a->esq = aux;
 	  		a->cor = vermelho;
 			a->esq->cor = preto;
 	  		a = rotacao_simples_direita(a);
 	  	}
-	  	if((cor(a->dir)==vermelho) && (cor(a->dir->dir)==vermelho)){//neto direito vermelho
+	  	if((cor(a->dir)==vermelho) && (cor(a->dir->dir)==vermelho)){
 	  		a->cor = vermelho;
 	  		a->dir->cor = preto;
 	  		a = rotacao_simples_esquerda(a);
 		}
-		if((cor(a->dir)==vermelho) && (cor(a->dir->esq)==vermelho)){//neto esquerdo vermelho
+		if((cor(a->dir)==vermelho) && (cor(a->dir->esq)==vermelho)){
 			Tno *aux = rotacao_simples_direita(a->dir);
 			a->dir = aux;
 			a->cor = vermelho;
@@ -119,7 +116,7 @@ Tno* incluir_no(Tno* a, Tno* dado){
 }
 int cor(Tno* a){
 	if(a==NULL)
-		return preto; //toda folha tem cor preta
+		return preto;
 	else
 		return a->cor;
 }
@@ -130,7 +127,7 @@ void trocaCor(Tno* a){
 	if(a->dir !=NULL)
 		a->dir->cor = !a->dir->cor;
 }
-void imprime(Tno* a){//mesmo código da AVL
+void imprime(Tno* a){
     if (a == NULL){
 		return;
 	}
@@ -145,5 +142,3 @@ void imprime(Tno* a){//mesmo código da AVL
     imprime(a->esq);
     imprime(a->dir);
 }
-
-
