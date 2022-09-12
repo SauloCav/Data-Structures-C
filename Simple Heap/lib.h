@@ -19,9 +19,6 @@ int heap_vazia (heap *h);
 void troca (heap *h, int i, int j);
 void sobe (heap *h, int i);
 void desce (heap *h, int i);
-
 void heap_insere (heap *h, int valor);
 int heap_retira (heap *h);
 void mostrar(heap *h);
-
-
