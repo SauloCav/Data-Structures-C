@@ -8,7 +8,6 @@ typedef struct no{
 	
 	struct no* esq;
 	struct no* dir;
-
 }Tno;
 
 void menu();
@@ -19,4 +18,3 @@ Tno* rotacao_simples_diretira(Tno *a);
 Tno* balanceamento(Tno* a);
 Tno* inserir(Tno* a, int elemento);
 void imprime(Tno* a);
-
