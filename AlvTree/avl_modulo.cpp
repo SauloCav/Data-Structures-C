@@ -2,17 +2,15 @@
 
 void menu(){
 	int op, valor;
-	
-	//--------- iniciando a estrutura --------------------//
+
     Tno *arvore = NULL;
     
     do{    
-    //--------------- Exibir menu ---------------------//
         system("cls");
         puts("\n\t\t\t\tARVORE BINARIA BALANCEADA - AVL\n");
         puts("\t1  - INSERIR ELEMENTO\n \t2  - IMPRIMIR ARVORE\n\t0  - SAIR");
         printf("\nINFORME SUA OPCAO:\n");
-        scanf("%d", &op);//Escolha da Opção
+        scanf("%d", &op);
         
         switch(op)
         {
@@ -78,7 +76,7 @@ Tno * balanceio_esquerda(Tno *a){
   if (fator > 0){
     return rotacao_simples_direita(a);
   }
-  else if (fator < 0)// Rotação Dupla Direita 
+  else if (fator < 0)
   { 
     a->esq = rotacao_simples_esquerda(a->esq);
     a = rotacao_simples_direita(a); 
@@ -94,7 +92,7 @@ Tno * balanceio_direita(Tno *a){
   {
     return rotacao_simples_esquerda(a);
   }
-  else if (fator > 0 )// Rotação Dupla Esquerda
+  else if (fator > 0 )
   { 
     a->dir = rotacao_simples_direita(a->dir);
     a = rotacao_simples_esquerda(a); 
@@ -146,7 +144,3 @@ void imprime(Tno* a){
     imprime(a->esq);
     imprime(a->dir);
 }
-
-
-
-
