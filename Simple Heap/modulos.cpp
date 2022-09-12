@@ -20,7 +20,7 @@ int heap_vazia (heap *h){
 
 void sobe (heap *h, int i){
 	int pai;
-	while(i>0){ //enquanto não estiver na raiz
+	while(i>0){
 		pai = pai(i);
 		if((h->v[pai])> (h->v[i]))
 			break;
@@ -56,7 +56,7 @@ void heap_insere(heap *h, int valor){
 }
 
 int heap_retira (heap *h){
-	int topo = h->v[0]; //remove o elemento do topo
+	int topo = h->v[0];
 	h->v[0] = h->v[--(h->n)];
 	desce(h,0);
 	return topo;
