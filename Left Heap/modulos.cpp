@@ -2,21 +2,18 @@
 
 void menu(){
 	int op, valor;
-	
-	//--------- iniciando a estrutura --------------------//
+
     heap *h = NULL;
     
     do{    
-    //--------------- Exibir menu ---------------------//
         system("cls");
         puts("\n\t\t\t\tHEAP ESQUERDISTA\n");
         puts("\t1  - INSERIR ELEMENTO\n \t2  - RETIRAR ELEMENTO\n \t3  - MOSTRAR TODA ESTRUTURA\n\t0  - SAIR");
         printf("\nINFORME SUA OPCAO:\n");
-        scanf("%d", &op);//Escolha da Opção
+        scanf("%d", &op);
         
         switch(op)
         {
-        //Opção de exibir lista
     		case 1:{
     			printf("Informe um elemento: ");
     			scanf("%d", &valor);
@@ -24,21 +21,17 @@ void menu(){
     			h = uniao(h, novo);
     			imprime(h);
 				break;
-			}
-    		
-    		case 2:{
-    			//TODO
-			}
+		}
     			
-    		case 3: imprime(h); break;
+    		case 2: imprime(h); break;
     			
 	    	default:
-	    			puts("OPCAO INCORRETA,TENTAR NOVAMENTE.");break;
-	      
+	    		puts("OPCAO INCORRETA,TENTAR NOVAMENTE.");break;
 	        }
 		getch();
 	    }while(op!=0);
 }
+
 heap* cria_heap(int valor){
 	heap *h = (heap *) malloc(sizeof(heap));
 	h->esq = NULL;
@@ -61,14 +54,12 @@ void troca_filhos (heap* a){
 
 heap* uniao(heap * h1, heap* h2) { 
     if (h1 == NULL) return h2; 
-
     if (h2 == NULL) return h1;
 
     if (h1->elemento > h2->elemento)
         return uniao_heaps(h1, h2); 
     else 
         return uniao_heaps(h2, h1); 
-
 } 
   
 heap * uniao_heaps(heap* h1, heap * h2) 
