@@ -5,7 +5,6 @@
 typedef struct no{
 	int elemento;
 	int s;
-	
 	no *esq;
 	no *dir;
 }heap;
@@ -15,9 +14,6 @@ heap* cria_heap(int valor);
 void heap_libera(heap *h);
 void troca_heaps (heap* a, heap*b);
 void troca_filhos (heap* a);
-
 heap* uniao(heap* h1, heap* h2);
 heap* uniao_heaps(heap* h1, heap* h2);
-
 void imprime(heap *h);
-
