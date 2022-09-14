@@ -20,13 +20,10 @@ void ub_libera ( UniaoBusca* ub){
 }
 
 int ub_busca ( UniaoBusca* ub, int x){
-
 	
 	int r = x;
-	
 	while (ub->v[r] >= 0)
 		r = ub->v[r];
-	
 	
 	while (ub->v[x] >= 0) {
 		int p = ub->v[x];
@@ -44,7 +41,6 @@ int ub_uniao ( UniaoBusca* ub, int x, int y){
 	if (x == y) 
 		return x;
 
-	
 	if (ub->v[x] <= ub->v[y]) {
 		ub->v[x] += ub->v[y]; 
 		ub->v[y] = x; 
@@ -56,5 +52,4 @@ int ub_uniao ( UniaoBusca* ub, int x, int y){
 		ub->v[x] = y; 
 		return y;
 	}
-
 }
