@@ -7,12 +7,12 @@ int main(void) {
 	criar(&L);
 	int hash;
 	do{    
-    //Exibir menu
+		
         system("cls");
         puts("\n\t\t\t\tEDITOR DE LISTAS\n");
         puts("\t1  - EXIBIR LISTA\n\t2  - INSERIR UM ELEMENTO\n\t0  - SAIR");
         printf("\nINFORME SUA OPCAO:\n");
-        scanf("%d", &op);//Escolha da Opção
+        scanf("%d", &op);
         
     	switch(op)
         	{
@@ -33,10 +33,8 @@ int main(void) {
 	                inserir(&L,hash, dado);
 					break;
 				}
-        	// TODO - Outra opção nao oferecida
     		default:
     			puts("OPCAO INCORRETA,TENTAR NOVAMENTE.");break;
-      
         }
 	getch();
     }while(op!=0);
