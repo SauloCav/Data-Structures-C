@@ -1,97 +1,82 @@
-// Autoria: https://www.geeksforgeeks.org/trie-insert-and-search/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 
-//funÁ„o para calcular o tamanho de um vetor preenchido
 #define ARRAY_SIZE(a) sizeof(a)/sizeof(a[0])
- 
-// N˙mero de sÌmbolos no alfabeto
 #define ALPHABET_SIZE (26)
- 
-// Converte o caractere atual da chave em Ìndice
-// usa apenas letras pequenas
 #define CHAR_TO_INDEX(c) ((int)c - (int)'a')
- 
 
 struct TrieNode
 {
     struct TrieNode *children[ALPHABET_SIZE];
- 
-	// isEndOfWord È o terminador de palavras. se verdadeiro o nÛ representar· o fim de uma palavra
     bool isEndOfWord;
 };
  
 
-struct TrieNode *getNode(void) //inicia a estrutura
+struct TrieNode *getNode(void)
 {
     struct TrieNode *pNode = NULL;
- 
     pNode = (struct TrieNode *)malloc(sizeof(struct TrieNode));
  
     if (pNode)
     {
         int i;
- 
         pNode->isEndOfWord = false;
- 
         for (i = 0; i < ALPHABET_SIZE; i++)
-            pNode->children[i] = NULL;//todas as referÍncias s„o nulas
+            pNode->children[i] = NULL;
     }
  
     return pNode;
 }
- 
-// Se a chave n„o existir insere esta na trie
-// Se seu prefixo estiver j· na trie realiza a marcaÁ„o da existencia da chave
+
 void insert(struct TrieNode *root, const char *key)
 {
-    int level;//vari·vel para percorrer a palavra (chave)
-    int length = strlen(key); //calcula o tamanho da chave que ser· inserida
+    int level;
+    int length = strlen(key);
     int index;
  
-    struct TrieNode *pCrawl = root; //ponteiro de cÛpia para a trie
+    struct TrieNode *pCrawl = root;
  
     for (level = 0; level < length; level++) //percorre-se toda a palavra
     {
-        index = CHAR_TO_INDEX(key[level]);//converte um caracter em um Ìndice
-        if (!pCrawl->children[index]) //se na trie aquela posiÁ„o ainda n„o existir
-            pCrawl->children[index] = getNode(); //cria a referencia naquela possiÁ„o
+        index = CHAR_TO_INDEX(key[level]);//converte um caracter em um √≠ndice
+        if (!pCrawl->children[index]) //se na trie aquela posi√ß√£o ainda n√£o existir
+            pCrawl->children[index] = getNode(); //cria a referencia naquela possi√ß√£o
  
         pCrawl = pCrawl->children[index];//realiza o  processo de descida na trie
     }
  
-    // marca o ˙ltimo nÛ como verdadeiro, para definir que ali temos uma chave
+    // marca o √∫ltimo n√≥ como verdadeiro, para definir que ali temos uma chave
     pCrawl->isEndOfWord = true;
 }
  
 
 bool search(struct TrieNode *root, const char *key)
 {
-    int level; //mesma vari·vel para percorrer a chave busca
+    int level; //mesma vari√°vel para percorrer a chave busca
     int length = strlen(key); //calcula o tamanho da chave
-    int index; //vari·vel que armazena o Ìndice correspondente ao caracter
-    struct TrieNode *pCrawl = root; //ponteiro para cÛpia da trie
+    int index; //vari√°vel que armazena o √≠ndice correspondente ao caracter
+    struct TrieNode *pCrawl = root; //ponteiro para c√≥pia da trie
  
     for (level = 0; level < length; level++)//percorre-se toda a chave
     {
-        index = CHAR_TO_INDEX(key[level]); //transforma o caracter em Ìndice
+        index = CHAR_TO_INDEX(key[level]); //transforma o caracter em √≠ndice
  
-        if (!pCrawl->children[index]) //se naquele Ìnidice n„o existir uma referencia 
-            return false; //a chave n„o est· na trie
+        if (!pCrawl->children[index]) //se naquele √≠nidice n√£o existir uma referencia 
+            return false; //a chave n√£o est√° na trie
  
-        pCrawl = pCrawl->children[index]; //se o Ìndice existir, segue pro prÛximo Ìndice
+        pCrawl = pCrawl->children[index]; //se o √≠ndice existir, segue pro pr√≥ximo √≠ndice
     }
  
-    return (pCrawl->isEndOfWord); //se toda a trie foi percorrida, os caracteres daquela chave est„o na trie,
-    //porÈm sÛ se a vari·vel isEndOfWord estiver marcada com verdadeiro È v·lido que a chave esteja na estrutura
+    return (pCrawl->isEndOfWord); //se toda a trie foi percorrida, os caracteres daquela chave est√£o na trie,
+    //por√©m s√≥ se a vari√°vel isEndOfWord estiver marcada com verdadeiro √© v√°lido que a chave esteja na estrutura
 }
  
 
 int main()
 {
-    // o alfabeto È de a-z ent„o as palavras incluÌdas para o teste devem ser neste alfabeto
+    // o alfabeto √© de a-z ent√£o as palavras inclu√≠das para o teste devem ser neste alfabeto
     
 	char keys[][8] = {"the", "a", "there", "answer", "any", "by", "bye", "their"};		
     char output[][32] = {"Palavra nao Encontrada", "Palavra Encontrada"};
