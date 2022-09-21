@@ -41,5 +41,8 @@ When the tree is modified, the new tree is rearranged and "repainted" to restore
 ## Leftist Heap
 A leftist tree or leftist heap is a priority queue implemented with a variant of a binary heap. Every node has an s-value (or rank or distance) which is the distance to the nearest leaf. In contrast to a binary heap (Which is always a complete binary tree), a leftist tree may be very unbalanced. Below are time complexities of Leftist Tree / Heap.
 
+## Hash
+In computer science, a heap is a specialized tree-based data structure which is essentially an almost complete tree that satisfies the heap property: in a max heap, for any given node C, if P is a parent node of C, then the key (the value) of P is greater than or equal to the key of C. In a min heap, the key of P is less than or equal to the key of C. The node at the "top" of the heap (with no parents) is called the root node.
+
 ## Hash chain
 A hash chain is the successive application of a cryptographic hash function to a piece of data. In computer security, a hash chain is a method to produce many one-time keys from a single key or password. For non-repudiation a hash function can be applied successively to additional pieces of data in order to record the chronology of data's existence.
